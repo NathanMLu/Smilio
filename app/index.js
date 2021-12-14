@@ -8,7 +8,7 @@ const GAPBETWEEN = 65;
 const faces = [];
 const colors = ["fb-aqua", "fb-black", "fb-blue", "fb-cerulean", "fb-cyan", "fb-dark-gray", "fb-extra-dark-gray", "fb-green", "fb-green-press", "fb-indigo", "fb-lavender", "fb-light-gray", "fb-lime", "fb-magenta", "fb-mint", "fb-orange", "fb-peach", "fb-pink", "fb-plum", "fb-purple", "fb-red", "fb-slate", "fb-slate-press", "fb-violet", "fb-yellow", "fb-yellow-press"];
 
-let innertimer, outertimer, background, background_transparent;
+let innertimer, outertimer, background, background_transparent, score;
 let running = false;
 let timer = STARTINGTIME;
 let level = 0;
@@ -38,9 +38,9 @@ function timerHandler(){
                 clearInterval(countdown);
                 background_transparent.style.display = "inline";
                 background_transparent.style.opacity = 0.6;
+                score.style.display = "inline";
+                score.text = "Score: " + level;
                 vibration.start("ping");
-
-                console.log("Timer ended!");
                 running = false;
             }
         }
@@ -62,6 +62,7 @@ function clickHandler(){
                     vibration.start("nudge");
                     addTime();
                     newLevel();
+                    level++;
                 } else {
                     vibration.start("bump");
                 }
@@ -79,7 +80,6 @@ function startHandler() {
 }
 
 function setBackgroundColor(){
-    console.log("trying to set color");
     background.style.fill = colors[getRandomInt(0, colors.length-1)];
 }
 
@@ -126,8 +126,10 @@ function refresh(){
 function restart(){
     timer = STARTINGTIME;
     background_transparent.style.display = "none";
+    score.style.display = "none";
     innertimer.width = 300;
     running = true;
+    level = 0;
     refresh();
     newLevel();
     timerHandler();
@@ -150,6 +152,7 @@ function start(){
     outertimer = document.getElementById("outertimer");
     background = document.getElementById("background");
     background_transparent = document.getElementById("background_transparent");
+    score = document.getElementById("score");
 
     restart();
 }

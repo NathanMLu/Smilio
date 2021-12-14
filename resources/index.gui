@@ -1,18 +1,19 @@
 <svg>
-    <rect id = "background" x = "0" y = "0" width = "100%" height = "100%" fill = "black"/>
+    <rect id = "background" />
 
-    <rect id = "outertimer" x = "0" y = "0" width = "300" height = "6%" fill="grey" />
-    <rect id = "innertimer" x = "0" y = "0" width = "300" height = "6%" fill="green" />
+    <rect id = "outertimer" />
+    <rect id = "innertimer" />
 
-    <image id = "smiley" x = "0" y = "0" width = "75" height = "75" href = "images/smiley.png" pointer-events = "visible" />
-    <image id = "cool" x = "0" y = "0" width = "75" height = "75" href = "images/cool.png" pointer-events = "visible" />
-    <image id = "frown1" x = "0" y = "0" width = "75" height = "75" href = "images/frown1.png" pointer-events = "visible" />
-    <image id = "frown2" x = "0" y = "0" width = "75" height = "75" href = "images/frown2.png" pointer-events = "visible" />
-    <image id = "neutral" x = "0" y = "0" width = "75" height = "75" href = "images/neutral.png" pointer-events = "visible" />
-    <image id = "sad" x = "0" y = "0" width = "75" height = "75" href = "images/sad.png" pointer-events = "visible" />
-    <image id = "smile1" x = "0" y = "0" width = "75" height = "75" href = "images/smile1.png" pointer-events = "visible" />
-    <image id = "smile2" x = "0" y = "0" width = "75" height = "75" href = "images/smile2.png" pointer-events = "visible" />
-    <image id = "smile3" x = "0" y = "0" width = "75" height = "75" href = "images/smile3.png" pointer-events = "visible" />
+    <image id = "smiley" />
+    <image id = "cool" />
+    <image id = "frown1" />
+    <image id = "frown2" />
+    <image id = "neutral" />
+    <image id = "sad" />
+    <image id = "smile1" />
+    <image id = "smile2" />
+    <image id = "smile3" />
 
-    <rect id = "background_transparent" opacity = "0" x = "0" y = "0" width = "100%" height = "100%" fill = "grey" pointer-events = "visible"/>
+    <rect id = "background_transparent"/>
+    <text id = "score">Score: 0</text>
 </svg>

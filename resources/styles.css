@@ -1,6 +1,129 @@
-.defaultText {
-  font-size: 32;
-  font-family: System-Bold;
-  font-weight: regular;
-  text-length: 32;
+#background{
+  x: "0";
+  y: "0";
+  width: "100%";
+  height: "100%";
+  fill: "black";
 }
+
+#outertimer{
+  x: "0";
+  y: "0";
+  width: "300";
+  height: "6%";
+  fill: "grey";
+}
+
+#innertimer{
+  x: "0";
+  y: "0";
+  width: "300";
+  height: "6%";
+  fill: "green";
+}
+
+#smiley{
+  x: "0";
+  y: "0";
+  width: "75";
+  height: "75";
+  href: "images/smiley.png";
+  pointer-events : "visible";
+}
+
+#cool{
+  x: "0";
+  y: "0";
+  width: "75";
+  height: "75";
+  href: "images/cool.png";
+  pointer-events : "visible";
+}
+
+#frown1{
+  x: "0";
+  y: "0";
+  width: "75";
+  height: "75";
+  href: "images/frown1.png";
+  pointer-events : "visible";
+}
+
+#frown2{
+  x: "0";
+  y: "0";
+  width: "75";
+  height: "75";
+  href: "images/frown2.png";
+  pointer-events : "visible";
+}
+
+#neutral{
+  x: "0";
+  y: "0";
+  width: "75";
+  height: "75";
+  href: "images/neutral.png";
+  pointer-events : "visible";
+}
+
+#sad{
+  x: "0";
+  y: "0";
+  width: "75";
+  height: "75";
+  href: "images/sad.png";
+  pointer-events : "visible";
+}
+
+#smile1{
+  x: "0";
+  y: "0";
+  width: "75";
+  height: "75";
+  href: "images/smile1.png";
+  pointer-events : "visible";
+}
+
+#smile2{
+  x: "0";
+  y: "0";
+  width: "75";
+  height: "75";
+  href: "images/smile2.png";
+  pointer-events : "visible";
+}
+
+#smile3{
+  x: "0";
+  y: "0";
+  width: "75";
+  height: "75";
+  href: "images/smile3.png";
+  pointer-events : "visible";
+}
+
+#score{
+  x: "50%";
+  y: "50%";
+  text-anchor: "middle";
+  font-size: 50;
+  font-family: System-Bold;
+  font-weight: bold;
+  text-length: 50;
+}
+
+#background_transparent{
+  opacity: "0";
+  x: "0";
+  y: "0";
+  width: "100%";
+  height: "100%";
+  fill: "grey";
+  pointer-events: "visible";
+}
+
+
+
+
+

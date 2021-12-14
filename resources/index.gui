@@ -14,6 +14,16 @@
     <image id = "smile2" />
     <image id = "smile3" />
 
+    <image id = "smiley_dark" />
+    <image id = "cool_dark" />
+    <image id = "frown1_dark" />
+    <image id = "frown2_dark" />
+    <image id = "neutral_dark" />
+    <image id = "sad_dark" />
+    <image id = "smile1_dark" />
+    <image id = "smile2_dark" />
+    <image id = "smile3_dark" />
+
     <rect id = "background_transparent"/>
     <text id = "score">Score: 0</text>
 </svg>

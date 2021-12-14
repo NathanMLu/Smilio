@@ -4,7 +4,7 @@ import { vibration } from "haptics";
 
 const STARTINGTIME = 5;
 const NUMFACES = 9;
-const GAPBETWEEN = 55;
+const GAPBETWEEN = 60;
 const faces = [];
 const dark_faces = [];
 const colors = ["fb-aqua", "fb-blue", "fb-cerulean", "fb-cyan", "fb-dark-gray", "fb-green", "fb-green-press", "fb-indigo", "fb-lavender", "fb-light-gray", "fb-lime", "fb-magenta", "fb-mint", "fb-orange", "fb-peach", "fb-pink", "fb-plum", "fb-purple", "fb-red", "fb-slate", "fb-violet", "fb-yellow", "fb-yellow-press"];
@@ -76,6 +76,25 @@ function clickHandler(){
     })(i);
 }
 
+// Handles all clicks for the dark faces
+function darkClickHandler(){
+    for (let i = 0; i<NUMFACES; i++) (function(i) {
+        dark_faces[i].onclick = function (event) {
+            if (running) {
+                if(dark_faces[i].id == "smiley_dark"){
+                    vibration.start("bump");
+                    level++;
+
+                    addTime();
+                    loadLevel(level);
+                } else {
+                    vibration.start("nudge");
+                }
+            }
+        }
+    })(i);
+}
+
 // Handles restarting upon death
 function startButtonHandler() {
     background_transparent.onclick = function (event) {
@@ -92,8 +111,14 @@ function setBackgroundColor(){
 
 // Loads the next level
 function loadLevel(difficulty){
+    // Hides all faces
+    for (let i = 0; i<NUMFACES; i++){
+        faces[i].style.display = "none";
+        dark_faces[i].style.display = "none";
+    }
 
-    if (difficulty > 5){
+    // Level 2 (technically)
+    if (difficulty >= 5){
         setBackgroundColor();
     }
 
@@ -104,30 +129,48 @@ function loadLevel(difficulty){
     for (let i = 0; i<NUMFACES; i++){
         const generated_x = getRandomInt(0,225);
         const generated_y = getRandomInt(20,225);
-        const random_width = getRandomInt(60, 100);
+        const random_width = getRandomInt(65, 100);
 
         let success = true;
+        let light = true;
 
         // Loops through all previous positions to avoid overlaps
         for (let j = 0; j < x.length; j++){
             if (Math.abs(x[j] - generated_x) <= GAPBETWEEN && Math.abs(y[j] - generated_y) <= GAPBETWEEN) {
                 success = false;
-                faces[i].style.display = "none";
             }
         }
 
         // If there is no overlap
         if (success) {
-            faces[i].style.display = "inline";
+            if(difficulty >= 10){
+                if(getRandomInt(0,1) == 0){
+                    dark_faces[i].style.display = "inline";
 
-            faces[i].x = generated_x;
-            faces[i].y = generated_y;
+                    dark_faces[i].x = generated_x;
+                    dark_faces[i].y = generated_y;
 
-            faces[i].width = random_width;
-            faces[i].height = random_width;
+                    dark_faces[i].width = random_width;
+                    dark_faces[i].height = random_width;
 
-            x.push(generated_x);
-            y.push(generated_y);
+                    x.push(generated_x);
+                    y.push(generated_y);
+
+                    light = false;
+                }
+            }
+            if (light == true){
+                faces[i].style.display = "inline";
+
+                faces[i].x = generated_x;
+                faces[i].y = generated_y;
+
+                faces[i].width = random_width;
+                faces[i].height = random_width;
+
+                x.push(generated_x);
+                y.push(generated_y);
+            }
         }
     }
 }
@@ -153,6 +196,7 @@ function resetToStart(){
     timer = STARTINGTIME;
     innertimer.width = 300;
 
+    background.style.fill = "black";
     background_transparent.style.display = "none";
     score.style.display = "none";
 
@@ -162,11 +206,13 @@ function resetToStart(){
     // Hides all faces
     for (let i = 0; i<NUMFACES; i++){
         faces[i].style.display = "none";
+        dark_faces[i].style.display = "none";
     }
 
     // Starts all listeners and handlers
     timerHandler();
     clickHandler();
+    darkClickHandler()
     startButtonHandler();
 
     loadLevel(level);

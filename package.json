@@ -1,0 +1,23 @@
+{
+  "fitbit": {
+    "appUUID": "9e846e9a-151c-45c2-90a5-a124e084b6e2",
+    "appType": "app",
+    "appDisplayName": "Smilio",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#607d8b",
+    "buildTargets": [
+      "higgs",
+      "meson",
+      "gemini",
+      "mira"
+    ],
+    "appUUID": "9e846e9a-151c-45c2-90a5-a124e084b6e2"
+  },
+  "devDependencies": {
+    "@fitbit/sdk": "~4.3.0",
+    "@fitbit/sdk-cli": "^1.7.3"
+  },
+  "scripts": {
+    "build": "fitbit-build"
+  }
+}

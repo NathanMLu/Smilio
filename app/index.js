@@ -2,15 +2,16 @@ import document from "document";
 import { display } from "display";
 import { vibration } from "haptics";
 
-const STARTINGTIME = 15;
+const STARTINGTIME = 5;
 const NUMFACES = 9;
-const GAPBETWEEN = 70;
+const GAPBETWEEN = 65;
 const faces = [];
+const colors = ["fb-aqua", "fb-black", "fb-blue", "fb-cerulean", "fb-cyan", "fb-dark-gray", "fb-extra-dark-gray", "fb-green", "fb-green-press", "fb-indigo", "fb-lavender", "fb-light-gray", "fb-lime", "fb-magenta", "fb-mint", "fb-orange", "fb-peach", "fb-pink", "fb-plum", "fb-purple", "fb-red", "fb-slate", "fb-slate-press", "fb-violet", "fb-yellow", "fb-yellow-press"];
 
-let innertimer, outertimer;
+let innertimer, outertimer, background, background_transparent;
 let running = false;
 let timer = STARTINGTIME;
-
+let level = 0;
 
 display.addEventListener("change", () => {
     if (display.on) {
@@ -29,9 +30,14 @@ function timerHandler(){
         if (running) {
             timer -= 0.1;
             innertimer.width -= (300/STARTINGTIME) * 0.1;
+            if (timer <= 1){
+                vibration.start("nudge-max");
+            }
             if (timer <= 0){
-                // Stops the timer
+                // Player lost
                 clearInterval(countdown);
+                background_transparent.style.display = "inline";
+                background_transparent.style.opacity = 0.6;
                 vibration.start("ping");
 
                 console.log("Timer ended!");
@@ -42,10 +48,9 @@ function timerHandler(){
 }
 
 function addTime(){
-
     if(innertimer.width < 300){
-        timer += 2;
-        innertimer.width += (300/STARTINGTIME) * 2;
+        timer ++;
+        innertimer.width += (300/STARTINGTIME);
     }
 }
 
@@ -65,12 +70,27 @@ function clickHandler(){
     })(i);
 }
 
+function startHandler() {
+    background_transparent.onclick = function (event) {
+        if (!running) {
+            restart();
+        }
+    }
+}
+
+function setBackgroundColor(){
+    console.log("trying to set color");
+    background.style.fill = colors[getRandomInt(0, colors.length-1)];
+}
+
 function newLevel(){
     const x = [];
     const y = [];
+
+    setBackgroundColor();
     for (let i = 0; i<NUMFACES; i++){
-        const generated_x = getRandomInt(0,255);
-        const generated_y = getRandomInt(0,255);
+        const generated_x = getRandomInt(0,225);
+        const generated_y = getRandomInt(20,225);
 
         let success = true;
 
@@ -78,6 +98,7 @@ function newLevel(){
         for (let j = 0; j < x.length; j++){
             if (Math.abs(x[j] - generated_x) <= GAPBETWEEN && Math.abs(y[j] - generated_y) <= GAPBETWEEN) {
                 success = false;
+                faces[i].style.display = "none";
             }
         }
 
@@ -86,6 +107,9 @@ function newLevel(){
 
             faces[i].x = generated_x;
             faces[i].y = generated_y;
+
+            faces[i].width = getRandomInt(60, 100);
+            faces[i].height = faces[i].width;
 
             x.push(generated_x);
             y.push(generated_y);
@@ -97,6 +121,18 @@ function refresh(){
     for (let i = 0; i<NUMFACES; i++){
         faces[i].style.display = "none";
     }
+}
+
+function restart(){
+    timer = STARTINGTIME;
+    background_transparent.style.display = "none";
+    innertimer.width = 300;
+    running = true;
+    refresh();
+    newLevel();
+    timerHandler();
+    clickHandler();
+    startHandler();
 }
 
 function start(){
@@ -112,13 +148,10 @@ function start(){
 
     innertimer = document.getElementById("innertimer");
     outertimer = document.getElementById("outertimer");
+    background = document.getElementById("background");
+    background_transparent = document.getElementById("background_transparent");
 
-    refresh();
-    newLevel();
-    timerHandler();
-    clickHandler();
-
-    running = true;
+    restart();
 }
 
 start();

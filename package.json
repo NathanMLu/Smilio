@@ -4,14 +4,13 @@
     "appType": "app",
     "appDisplayName": "Smilio",
     "iconFile": "resources/icon.png",
-    "wipeColor": "#607d8b",
+    "wipeColor": "#000000",
     "buildTargets": [
       "higgs",
       "meson",
       "gemini",
       "mira"
-    ],
-    "appUUID": "9e846e9a-151c-45c2-90a5-a124e084b6e2"
+    ]
   },
   "devDependencies": {
     "@fitbit/sdk": "~4.3.0",

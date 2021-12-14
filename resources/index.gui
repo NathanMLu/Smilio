@@ -2,15 +2,14 @@
     <rect id = "outertimer" x = "0" y = "0" width = "300" height = "6%" fill="grey" />
     <rect id = "innertimer" x = "0" y = "0" width = "300" height = "6%" fill="green" />
 
-    <image id = "smiley" x = "0" y = "0" width = "40" height = "40" href = "images/smiley.png"/>
-    <image id = "cool" x = "0" y = "0" width = "40" height = "40" href = "images/cool.png"/>
-    <image id = "frown1" x = "0" y = "0" width = "40" height = "40" href = "images/frown1.png"/>
-    <image id = "frown2" x = "0" y = "0" width = "40" height = "40" href = "images/frown2.png"/>
-    <image id = "neutral" x = "0" y = "0" width = "40" height = "40" href = "images/neutral.png"/>
-    <image id = "sad" x = "0" y = "0" width = "40" height = "40" href = "images/sad.png"/>
-    <image id = "smile1" x = "0" y = "0" width = "40" height = "40" href = "images/smile1.png"/>
-    <image id = "smile2" x = "0" y = "0" width = "40" height = "40" href = "images/smile2.png"/>
-    <image id = "smile3" x = "0" y = "0" width = "40" height = "40" href = "images/smile3.png"/>
-
+    <image id = "smiley" x = "0" y = "0" width = "75" height = "75" href = "images/smiley.png" pointer-events = "visible" />
+    <image id = "cool" x = "0" y = "0" width = "75" height = "75" href = "images/cool.png" pointer-events = "visible" />
+    <image id = "frown1" x = "0" y = "0" width = "75" height = "75" href = "images/frown1.png" pointer-events = "visible" />
+    <image id = "frown2" x = "0" y = "0" width = "75" height = "75" href = "images/frown2.png" pointer-events = "visible" />
+    <image id = "neutral" x = "0" y = "0" width = "75" height = "75" href = "images/neutral.png" pointer-events = "visible" />
+    <image id = "sad" x = "0" y = "0" width = "75" height = "75" href = "images/sad.png" pointer-events = "visible" />
+    <image id = "smile1" x = "0" y = "0" width = "75" height = "75" href = "images/smile1.png" pointer-events = "visible" />
+    <image id = "smile2" x = "0" y = "0" width = "75" height = "75" href = "images/smile2.png" pointer-events = "visible" />
+    <image id = "smile3" x = "0" y = "0" width = "75" height = "75" href = "images/smile3.png" pointer-events = "visible" />
 
 </svg>

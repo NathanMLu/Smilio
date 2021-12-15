@@ -1,6 +1,6 @@
 import document from "document";
-import { display } from "display";
-import { vibration } from "haptics";
+import {display} from "display";
+import {vibration} from "haptics";
 
 const STARTINGTIME = 5;
 const NUMFACES = 9;
@@ -9,7 +9,7 @@ const faces = [];
 const dark_faces = [];
 const colors = ["fb-aqua", "fb-blue", "fb-cerulean", "fb-cyan", "fb-dark-gray", "fb-green", "fb-green-press", "fb-indigo", "fb-lavender", "fb-light-gray", "fb-lime", "fb-magenta", "fb-mint", "fb-orange", "fb-peach", "fb-pink", "fb-plum", "fb-purple", "fb-red", "fb-slate", "fb-violet", "fb-yellow", "fb-yellow-press"];
 
-let innertimer, background, background_transparent, score, all_faces;
+let innertimer, background, background_transparent, score, all_faces, text_display;
 let running = false;
 let timer = STARTINGTIME;
 let level = 0;
@@ -24,39 +24,39 @@ display.addEventListener("change", () => {
 });
 
 // Min and max are inclusive
-function getRandomInt(min, max){
-    return Math.floor(Math.random()*(max-min+1)+min);
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 // Adds time when you go to next level
-function addTime(){
-    if(innertimer.width < 300){
+function addTime() {
+    if (innertimer.width < 300) {
         timer += 1;
-        innertimer.width += (300/STARTINGTIME);
+        innertimer.width += (300 / STARTINGTIME);
     }
 }
 
 // Decreases time when you mess up
-function decreaseTime(){
-    if(innertimer.width > 0){
+function decreaseTime() {
+    if (innertimer.width > 0) {
         timer -= 1;
-        innertimer.width -= (300/STARTINGTIME);
+        innertimer.width -= (300 / STARTINGTIME);
     }
 }
 
 // Decreases timer and handles loss
-function timerHandler(){
+function timerHandler() {
     const countdown = setInterval(function () {
         if (running) {
             // Updates timer every 0.1 secs
             timer -= 0.1;
-            innertimer.width -= (300/STARTINGTIME) * 0.1;
+            innertimer.width -= (300 / STARTINGTIME) * 0.1;
 
-            if (timer <= 1){
+            if (timer <= 1) {
                 // Timer is almost out
                 vibration.start("nudge-max");
             }
-            if (timer <= 0){
+            if (timer <= 0) {
                 // Calls end menu
                 playerLost();
                 clearInterval(countdown);
@@ -66,11 +66,11 @@ function timerHandler(){
 }
 
 // Handles all clicks for the faces
-function clickHandler(){
-    for (let i = 0; i<NUMFACES; i++) (function(i) {
+function clickHandler() {
+    for (let i = 0; i < NUMFACES; i++) (function (i) {
         faces[i].onclick = function (event) {
             if (running) {
-                if(faces[i].id == "smiley" || faces[i].id == "smiley_red"){
+                if (faces[i].id == "smiley" || faces[i].id == "smiley_red") {
                     vibration.start("bump");
                     level++;
                     score.text = level;
@@ -86,11 +86,11 @@ function clickHandler(){
 }
 
 // Handles all clicks for the dark faces
-function darkClickHandler(){
-    for (let i = 0; i<NUMFACES; i++) (function(i) {
+function darkClickHandler() {
+    for (let i = 0; i < NUMFACES; i++) (function (i) {
         dark_faces[i].onclick = function (event) {
             if (running) {
-                if(dark_faces[i].id == "smiley_dark" || faces[i].id == "smiley_red"){
+                if (dark_faces[i].id == "smiley_dark" || faces[i].id == "smiley_red") {
                     vibration.start("bump");
                     level++;
                     score.text = level;
@@ -111,18 +111,24 @@ function startButtonHandler() {
             resetToStart();
         }
     }
+
+    text_display.onclick = function (event) {
+        if (!running) {
+            resetToStart();
+        }
+    }
 }
 
 // Randomly changes background
-function setBackgroundColor(){
-    background.style.fill = colors[getRandomInt(0, colors.length-1)];
+function setBackgroundColor() {
+    background.style.fill = colors[getRandomInt(0, colors.length - 1)];
 }
 
 // Loads the next level
-function loadLevel(difficulty){
+function loadLevel(difficulty) {
 
     // Level 2 (technically)
-    if (difficulty >= 5){
+    if (difficulty >= 5) {
         faces[0].style.display = "none";
         faces[0] = document.getElementById("smiley");
         faces[0].style.display = "inline";
@@ -132,7 +138,7 @@ function loadLevel(difficulty){
     }
 
     // Hides all faces
-    for (let i = 0; i<NUMFACES; i++){
+    for (let i = 0; i < NUMFACES; i++) {
         faces[i].style.display = "none";
         dark_faces[i].style.display = "none";
     }
@@ -141,7 +147,7 @@ function loadLevel(difficulty){
     const x = [];
     const y = [];
 
-    for (let i = 0; i<NUMFACES; i++) {
+    for (let i = 0; i < NUMFACES; i++) {
         const generated_x = getRandomInt(-150, 70);
         const generated_y = getRandomInt(-130, 70);
         const random_width = getRandomInt(65, 100);
@@ -172,23 +178,27 @@ function loadLevel(difficulty){
         }
 
         // Level 6
-        if (difficulty >= 30){
-            console.log("going in here");
-            let choice = getRandomInt(0,2);
+        if (difficulty >= 30) {
+            all_faces.animate("load");
+            let choice = getRandomInt(0, 2);
             if (choice == 0) {
+                console.log("choice 0");
                 all_faces.animate("activate");
             } else if (choice == 1) {
+                console.log("choice 1");
                 all_faces.animate("enable");
-            } else if (choice == 2){
+            } else if (choice == 2) {
+                console.log("choice 2");
                 all_faces.animate("disable");
             }
         }
 
         // If there is no overlap
         if (success) {
-            if(difficulty >= 10){
+            if (difficulty >= 10) {
+                score.x = 42;
                 // Level 3
-                if(getRandomInt(0,1) == 0){
+                if (getRandomInt(0, 1) == 0) {
                     dark_faces[i].style.display = "inline";
 
                     dark_faces[i].x = generated_x;
@@ -205,7 +215,7 @@ function loadLevel(difficulty){
             }
 
             // Level 1
-            if (light == true){
+            if (light == true) {
                 faces[i].style.display = "inline";
 
                 faces[i].x = generated_x;
@@ -222,11 +232,13 @@ function loadLevel(difficulty){
 }
 
 // Shows end screen upon loss
-function playerLost(){
+function playerLost() {
 
     // Show high score and other stuff
     score.text = "0";
     score.style.display = "none";
+    text_display.text = "Score: " + level;
+    text_display.style.display = "inline";
 
     // Shows transparent background
     background_transparent.style.display = "inline";
@@ -239,7 +251,8 @@ function playerLost(){
 }
 
 // Resets screen when user wants to restart
-function resetToStart(){
+function resetToStart() {
+    text_display.style.display = "none";
     timer = STARTINGTIME;
     innertimer.width = 300;
 
@@ -251,7 +264,7 @@ function resetToStart(){
     level = 0;
 
     // Hides all faces
-    for (let i = 0; i<NUMFACES; i++){
+    for (let i = 0; i < NUMFACES; i++) {
         faces[i].style.display = "none";
         dark_faces[i].style.display = "none";
     }
@@ -266,7 +279,7 @@ function resetToStart(){
 }
 
 // Initialization from index.gui
-function initializeVariables(){
+function initializeVariables() {
     faces[0] = document.getElementById("smiley");
     faces[0].style.display = "none";
     faces[1] = document.getElementById("cool");
@@ -294,12 +307,13 @@ function initializeVariables(){
     score = document.getElementById("score");
     all_faces = document.getElementById("faces");
     faces[0] = document.getElementById("smiley_red");
+    text_display = document.getElementById("text_display");
 
     resetToStart();
 }
 
 // Only called once, at the start of the game
-function start(){
+function start() {
     // TODO: add instructions menu, cache if user has seen before
     // TODO: add leaderboard
 

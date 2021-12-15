@@ -201,7 +201,19 @@
   fill: "white";
   font-family: System-Bold;
   font-weight: bold;
-  text-length: 65
+  text-length: 65;
+}
+
+#text_display{
+  x: "50%";
+  y: "50%";
+  text-anchor: "middle";
+  font-size: 55;
+  fill: "white";
+  font-family: System-Bold;
+  font-weight: bold;
+  text-length: 55;
+  pointer-events: "visible";
 }
 
 #background_transparent{

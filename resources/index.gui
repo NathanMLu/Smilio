@@ -37,5 +37,6 @@
 
     <rect id = "background_transparent"/>
     <text id = "score">0</text>
-    <text id = "text_display">High Score: \n0</text>
+    <text id = "text_display">Score: 0</text>
+    <text id = "highscore">Highscore: 0</text>
 </svg>

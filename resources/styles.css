@@ -216,6 +216,18 @@
   pointer-events: "visible";
 }
 
+#highscore{
+  x: "50%";
+  y: "65%";
+  text-anchor: "middle";
+  font-size: 35;
+  fill: "white";
+  font-family: System-Bold;
+  font-weight: bold;
+  text-length: 35;
+  pointer-events: "visible";
+}
+
 #background_transparent{
   opacity: "0";
   x: "0";

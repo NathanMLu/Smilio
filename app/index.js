@@ -1,6 +1,7 @@
 import document from "document";
 import {display} from "display";
 import {vibration} from "haptics";
+import * as fs from "fs";
 
 const STARTINGTIME = 5;
 const NUMFACES = 9;
@@ -9,7 +10,8 @@ const faces = [];
 const dark_faces = [];
 const colors = ["fb-aqua", "fb-blue", "fb-cerulean", "fb-cyan", "fb-dark-gray", "fb-green", "fb-green-press", "fb-indigo", "fb-lavender", "fb-light-gray", "fb-lime", "fb-magenta", "fb-mint", "fb-orange", "fb-peach", "fb-pink", "fb-plum", "fb-purple", "fb-red", "fb-slate", "fb-violet", "fb-yellow", "fb-yellow-press"];
 
-let innertimer, background, background_transparent, score, all_faces, text_display;
+let innertimer, background, background_transparent, score, all_faces, text_display, highscore;
+let current_highscore;
 let running = false;
 let timer = STARTINGTIME;
 let level = 0;
@@ -182,13 +184,10 @@ function loadLevel(difficulty) {
             all_faces.animate("load");
             let choice = getRandomInt(0, 2);
             if (choice == 0) {
-                console.log("choice 0");
                 all_faces.animate("activate");
             } else if (choice == 1) {
-                console.log("choice 1");
                 all_faces.animate("enable");
             } else if (choice == 2) {
-                console.log("choice 2");
                 all_faces.animate("disable");
             }
         }
@@ -234,11 +233,19 @@ function loadLevel(difficulty) {
 // Shows end screen upon loss
 function playerLost() {
 
+    // Insert high score stuff here
+    if (level > current_highscore){
+        fs.writeFileSync("highscore.txt", level.toString(), "ascii");
+        current_highscore = level;
+    }
+
     // Show high score and other stuff
     score.text = "0";
     score.style.display = "none";
     text_display.text = "Score: " + level;
     text_display.style.display = "inline";
+    highscore.text = "Highscore: " + current_highscore;
+    highscore.style.display = "inline";
 
     // Shows transparent background
     background_transparent.style.display = "inline";
@@ -253,6 +260,7 @@ function playerLost() {
 // Resets screen when user wants to restart
 function resetToStart() {
     text_display.style.display = "none";
+    highscore.style.display = "none";
     timer = STARTINGTIME;
     innertimer.width = 300;
 
@@ -308,14 +316,18 @@ function initializeVariables() {
     all_faces = document.getElementById("faces");
     faces[0] = document.getElementById("smiley_red");
     text_display = document.getElementById("text_display");
-
+    highscore = document.getElementById("highscore");
+    current_highscore = fs.readFileSync("highscore.txt", "ascii");
     resetToStart();
 }
 
 // Only called once, at the start of the game
 function start() {
-    // TODO: add instructions menu, cache if user has seen before
-    // TODO: add leaderboard
+    // Creates highscore file if it is their first time playing
+    if (!fs.existsSync("/private/data/highscore.txt")) {
+        fs.writeFileSync("highscore.txt", "0", "ascii");
+        // TODO make panel that shows instructions (edit textdisplay and highscore)
+    }
 
     initializeVariables();
 }

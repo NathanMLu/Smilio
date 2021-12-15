@@ -73,7 +73,7 @@ function clickHandler(){
                 if(faces[i].id == "smiley" || faces[i].id == "smiley_red"){
                     vibration.start("bump");
                     level++;
-
+                    score.text = level;
                     addTime();
                     loadLevel(level);
                 } else {
@@ -93,7 +93,7 @@ function darkClickHandler(){
                 if(dark_faces[i].id == "smiley_dark" || faces[i].id == "smiley_red"){
                     vibration.start("bump");
                     level++;
-
+                    score.text = level;
                     addTime();
                     loadLevel(level);
                 } else {
@@ -224,13 +224,13 @@ function loadLevel(difficulty){
 // Shows end screen upon loss
 function playerLost(){
 
+    // Show high score and other stuff
+    score.text = "0";
+    score.style.display = "none";
+
     // Shows transparent background
     background_transparent.style.display = "inline";
     background_transparent.style.opacity = 0.75;
-
-    // Shows scoreboard
-    score.style.display = "inline";
-    score.text = "Score: " + level;
 
     // Waits for user to click screen (startButtonHandler)
     vibration.start("ping");
@@ -245,7 +245,7 @@ function resetToStart(){
 
     background.style.fill = "black";
     background_transparent.style.display = "none";
-    score.style.display = "none";
+    score.style.display = "inline";
 
     running = true;
     level = 0;

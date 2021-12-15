@@ -194,10 +194,11 @@
 }
 
 #score{
-  x: "50%";
-  y: "50%";
+  x: "8%";
+  y: "17%";
   text-anchor: "middle";
   font-size: 65;
+  fill: "white";
   font-family: System-Bold;
   font-weight: bold;
   text-length: 65

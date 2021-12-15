@@ -70,7 +70,7 @@ function clickHandler(){
     for (let i = 0; i<NUMFACES; i++) (function(i) {
         faces[i].onclick = function (event) {
             if (running) {
-                if(faces[i].id == "smiley"){
+                if(faces[i].id == "smiley" || faces[i].id == "smiley_red"){
                     vibration.start("bump");
                     level++;
 
@@ -90,7 +90,7 @@ function darkClickHandler(){
     for (let i = 0; i<NUMFACES; i++) (function(i) {
         dark_faces[i].onclick = function (event) {
             if (running) {
-                if(dark_faces[i].id == "smiley_dark"){
+                if(dark_faces[i].id == "smiley_dark" || faces[i].id == "smiley_red"){
                     vibration.start("bump");
                     level++;
 
@@ -120,15 +120,21 @@ function setBackgroundColor(){
 
 // Loads the next level
 function loadLevel(difficulty){
+
+    // Level 2 (technically)
+    if (difficulty >= 5){
+        faces[0].style.display = "none";
+        faces[0] = document.getElementById("smiley");
+        faces[0].style.display = "inline";
+        setBackgroundColor();
+        clickHandler();
+        darkClickHandler();
+    }
+
     // Hides all faces
     for (let i = 0; i<NUMFACES; i++){
         faces[i].style.display = "none";
         dark_faces[i].style.display = "none";
-    }
-
-    // Level 2 (technically)
-    if (difficulty >= 5){
-        setBackgroundColor();
     }
 
     // Stores old positions of faces
@@ -167,6 +173,7 @@ function loadLevel(difficulty){
 
         // Level 6
         if (difficulty >= 30){
+            console.log("going in here");
             let choice = getRandomInt(0,2);
             if (choice == 0) {
                 all_faces.animate("activate");
@@ -252,7 +259,7 @@ function resetToStart(){
     // Starts all listeners and handlers
     timerHandler();
     clickHandler();
-    darkClickHandler()
+    darkClickHandler();
     startButtonHandler();
 
     loadLevel(level);
@@ -261,6 +268,7 @@ function resetToStart(){
 // Initialization from index.gui
 function initializeVariables(){
     faces[0] = document.getElementById("smiley");
+    faces[0].style.display = "none";
     faces[1] = document.getElementById("cool");
     faces[2] = document.getElementById("frown1");
     faces[3] = document.getElementById("frown2");

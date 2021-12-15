@@ -6,11 +6,11 @@
 
     <g id = "faces" pointer-events="visible" transform="translate(50%,50%)">
 
-        <animateTransform attributeType="scale" from="0.9" to="1.1" begin="activate" end = "load" dur="2.5" easing="ease-in-out"/>
-        <animateTransform attributeType="scale" from="1.1" to="0.9" begin="activate+2" end = "load" dur="2.5" easing="ease-in-out"/>
+        <animateTransform attributeType="scale" from="0.9" to="1.1" begin="activate" end = "load" dur="2.5" easing="ease-in-out" final = "restore"/>
+        <animateTransform attributeType="scale" from="1.1" to="0.9" begin="activate+2" end = "load" dur="2.5" easing="ease-in-out" final = "restore"/>
 
-        <animateTransform attributeType="rotate" from="0" to="180" begin="enable" end = "load" dur="5" easing="ease-in-out"/>
-        <animateTransform attributeType="rotate" from="0" to="-180" begin="disable" end = "load" dur="5" easing="ease-in-out"/>
+        <animateTransform attributeType="rotate" from="0" to="180" begin="enable" end = "load" dur="5" easing="ease-in-out" final = "restore"/>
+        <animateTransform attributeType="rotate" from="0" to="-180" begin="disable" end = "load" dur="5" easing="ease-in-out" final = "restore"/>
 
         <image id = "smiley"/>
         <image id = "cool" />

@@ -9,7 +9,7 @@ const faces = [];
 const dark_faces = [];
 const colors = ["fb-aqua", "fb-blue", "fb-cerulean", "fb-cyan", "fb-dark-gray", "fb-green", "fb-green-press", "fb-indigo", "fb-lavender", "fb-light-gray", "fb-lime", "fb-magenta", "fb-mint", "fb-orange", "fb-peach", "fb-pink", "fb-plum", "fb-purple", "fb-red", "fb-slate", "fb-violet", "fb-yellow", "fb-yellow-press"];
 
-let innertimer, background, background_transparent, score;
+let innertimer, background, background_transparent, score, all_faces;
 let running = false;
 let timer = STARTINGTIME;
 let level = 0;
@@ -33,6 +33,14 @@ function addTime(){
     if(innertimer.width < 300){
         timer += 1;
         innertimer.width += (300/STARTINGTIME);
+    }
+}
+
+// Decreases time when you mess up
+function decreaseTime(){
+    if(innertimer.width > 0){
+        timer -= 1;
+        innertimer.width -= (300/STARTINGTIME);
     }
 }
 
@@ -69,6 +77,7 @@ function clickHandler(){
                     addTime();
                     loadLevel(level);
                 } else {
+                    decreaseTime();
                     vibration.start("nudge");
                 }
             }
@@ -126,24 +135,52 @@ function loadLevel(difficulty){
     const x = [];
     const y = [];
 
-    for (let i = 0; i<NUMFACES; i++){
-        const generated_x = getRandomInt(0,225);
-        const generated_y = getRandomInt(20,225);
+    for (let i = 0; i<NUMFACES; i++) {
+        const generated_x = getRandomInt(-150, 70);
+        const generated_y = getRandomInt(-130, 70);
         const random_width = getRandomInt(65, 100);
 
         let success = true;
         let light = true;
 
         // Loops through all previous positions to avoid overlaps
-        for (let j = 0; j < x.length; j++){
+        for (let j = 0; j < x.length; j++) {
             if (Math.abs(x[j] - generated_x) <= GAPBETWEEN && Math.abs(y[j] - generated_y) <= GAPBETWEEN) {
                 success = false;
+            }
+        }
+
+        // Level 3
+        if (difficulty >= 15) {
+            all_faces.animate("activate");
+        }
+
+        // Level 4
+        if (difficulty >= 20) {
+            all_faces.animate("enable");
+        }
+
+        // Level 5
+        if (difficulty >= 25) {
+            all_faces.animate("disable");
+        }
+
+        // Level 6
+        if (difficulty >= 30){
+            let choice = getRandomInt(0,2);
+            if (choice == 0) {
+                all_faces.animate("activate");
+            } else if (choice == 1) {
+                all_faces.animate("enable");
+            } else if (choice == 2){
+                all_faces.animate("disable");
             }
         }
 
         // If there is no overlap
         if (success) {
             if(difficulty >= 10){
+                // Level 3
                 if(getRandomInt(0,1) == 0){
                     dark_faces[i].style.display = "inline";
 
@@ -159,6 +196,8 @@ function loadLevel(difficulty){
                     light = false;
                 }
             }
+
+            // Level 1
             if (light == true){
                 faces[i].style.display = "inline";
 
@@ -180,7 +219,7 @@ function playerLost(){
 
     // Shows transparent background
     background_transparent.style.display = "inline";
-    background_transparent.style.opacity = 0.6;
+    background_transparent.style.opacity = 0.75;
 
     // Shows scoreboard
     score.style.display = "inline";
@@ -188,6 +227,7 @@ function playerLost(){
 
     // Waits for user to click screen (startButtonHandler)
     vibration.start("ping");
+    all_faces.animate("load");
     running = false;
 }
 
@@ -244,6 +284,8 @@ function initializeVariables(){
     background = document.getElementById("background");
     background_transparent = document.getElementById("background_transparent");
     score = document.getElementById("score");
+    all_faces = document.getElementById("faces");
+    faces[0] = document.getElementById("smiley_red");
 
     resetToStart();
 }

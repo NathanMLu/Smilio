@@ -4,25 +4,36 @@
     <rect id = "outertimer" />
     <rect id = "innertimer" />
 
-    <image id = "smiley" />
-    <image id = "cool" />
-    <image id = "frown1" />
-    <image id = "frown2" />
-    <image id = "neutral" />
-    <image id = "sad" />
-    <image id = "smile1" />
-    <image id = "smile2" />
-    <image id = "smile3" />
+    <g id = "faces" pointer-events="visible" transform="translate(50%,50%)">
 
-    <image id = "smiley_dark" />
-    <image id = "cool_dark" />
-    <image id = "frown1_dark" />
-    <image id = "frown2_dark" />
-    <image id = "neutral_dark" />
-    <image id = "sad_dark" />
-    <image id = "smile1_dark" />
-    <image id = "smile2_dark" />
-    <image id = "smile3_dark" />
+        <animateTransform attributeType="scale" from="0.9" to="1.1" begin="activate" end = "load" dur="2.5" easing="ease-in-out"/>
+        <animateTransform attributeType="scale" from="1.1" to="0.9" begin="activate+2" end = "load" dur="2.5" easing="ease-in-out"/>
+
+        <animateTransform attributeType="rotate" from="0" to="180" begin="enable" end = "load" dur="5" easing="ease-in-out"/>
+        <animateTransform attributeType="rotate" from="0" to="-180" begin="disable" end = "load" dur="5" easing="ease-in-out"/>
+
+        <image id = "smiley"/>
+        <image id = "cool" />
+        <image id = "frown1" />
+        <image id = "frown2" />
+        <image id = "neutral" />
+        <image id = "sad" />
+        <image id = "smile1" />
+        <image id = "smile2" />
+        <image id = "smile3" />
+
+        <image id = "smiley_dark" />
+        <image id = "cool_dark" />
+        <image id = "frown1_dark" />
+        <image id = "frown2_dark" />
+        <image id = "neutral_dark" />
+        <image id = "sad_dark" />
+        <image id = "smile1_dark" />
+        <image id = "smile2_dark" />
+        <image id = "smile3_dark" />
+
+        <image id = "smiley_red" />
+    </g>
 
     <rect id = "background_transparent"/>
     <text id = "score">Score: 0</text>

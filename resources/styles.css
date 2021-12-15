@@ -184,14 +184,23 @@
   pointer-events : "visible";
 }
 
+#smiley_red{
+  x: "0";
+  y: "0";
+  width: "75";
+  height: "75";
+  href: "images/smiley_red.png";
+  pointer-events : "visible";
+}
+
 #score{
   x: "50%";
   y: "50%";
   text-anchor: "middle";
-  font-size: 50;
+  font-size: 65;
   font-family: System-Bold;
   font-weight: bold;
-  text-length: 50;
+  text-length: 65
 }
 
 #background_transparent{

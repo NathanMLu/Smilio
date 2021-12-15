@@ -259,6 +259,7 @@ function playerLost() {
 
 // Resets screen when user wants to restart
 function resetToStart() {
+    score.x = 24;
     text_display.style.display = "none";
     highscore.style.display = "none";
     timer = STARTINGTIME;

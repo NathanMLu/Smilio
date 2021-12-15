@@ -1,241 +1,241 @@
-#background{
-  x: "0";
-  y: "0";
-  width: "100%";
-  height: "100%";
-  fill: "black";
+#background {
+    x: "0";
+    y: "0";
+    width: "100%";
+    height: "100%";
+    fill: "black";
 }
 
-#outertimer{
-  x: "0";
-  y: "0";
-  width: "300";
-  height: "6%";
-  fill: "grey";
+#outertimer {
+    x: "0";
+    y: "0";
+    width: "300";
+    height: "6%";
+    fill: "grey";
 }
 
-#innertimer{
-  x: "0";
-  y: "0";
-  width: "300";
-  height: "6%";
-  fill: "green";
+#innertimer {
+    x: "0";
+    y: "0";
+    width: "300";
+    height: "6%";
+    fill: "green";
 }
 
-#smiley{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/smiley.png";
-  pointer-events : "visible";
+#smiley {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/smiley.png";
+    pointer-events: "visible";
 }
 
-#cool{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/cool.png";
-  pointer-events : "visible";
+#cool {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/cool.png";
+    pointer-events: "visible";
 }
 
-#frown1{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/frown1.png";
-  pointer-events : "visible";
+#frown1 {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/frown1.png";
+    pointer-events: "visible";
 }
 
-#frown2{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/frown2.png";
-  pointer-events : "visible";
+#frown2 {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/frown2.png";
+    pointer-events: "visible";
 }
 
-#neutral{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/neutral.png";
-  pointer-events : "visible";
+#neutral {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/neutral.png";
+    pointer-events: "visible";
 }
 
-#sad{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/sad.png";
-  pointer-events : "visible";
+#sad {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/sad.png";
+    pointer-events: "visible";
 }
 
-#smile1{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/smile1.png";
-  pointer-events : "visible";
+#smile1 {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/smile1.png";
+    pointer-events: "visible";
 }
 
-#smile2{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/smile2.png";
-  pointer-events : "visible";
+#smile2 {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/smile2.png";
+    pointer-events: "visible";
 }
 
-#smile3{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/smile3.png";
-  pointer-events : "visible";
+#smile3 {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/smile3.png";
+    pointer-events: "visible";
 }
 
-#smiley_dark{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/smiley_dark.png";
-  pointer-events : "visible";
+#smiley_dark {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/smiley_dark.png";
+    pointer-events: "visible";
 }
 
-#cool_dark{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/cool_dark.png";
-  pointer-events : "visible";
+#cool_dark {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/cool_dark.png";
+    pointer-events: "visible";
 }
 
-#frown1_dark{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/frown1_dark.png";
-  pointer-events : "visible";
+#frown1_dark {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/frown1_dark.png";
+    pointer-events: "visible";
 }
 
-#frown2_dark{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/frown2_dark.png";
-  pointer-events : "visible";
+#frown2_dark {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/frown2_dark.png";
+    pointer-events: "visible";
 }
 
-#neutral_dark{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/neutral_dark.png";
-  pointer-events : "visible";
+#neutral_dark {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/neutral_dark.png";
+    pointer-events: "visible";
 }
 
-#sad_dark{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/sad_dark.png";
-  pointer-events : "visible";
+#sad_dark {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/sad_dark.png";
+    pointer-events: "visible";
 }
 
-#smile1_dark{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/smile1_dark.png";
-  pointer-events : "visible";
+#smile1_dark {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/smile1_dark.png";
+    pointer-events: "visible";
 }
 
-#smile2_dark{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/smile2_dark.png";
-  pointer-events : "visible";
+#smile2_dark {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/smile2_dark.png";
+    pointer-events: "visible";
 }
 
-#smile3_dark{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/smile3_dark.png";
-  pointer-events : "visible";
+#smile3_dark {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/smile3_dark.png";
+    pointer-events: "visible";
 }
 
-#smiley_red{
-  x: "0";
-  y: "0";
-  width: "75";
-  height: "75";
-  href: "images/smiley_red.png";
-  pointer-events : "visible";
+#smiley_red {
+    x: "0";
+    y: "0";
+    width: "75";
+    height: "75";
+    href: "images/smiley_red.png";
+    pointer-events: "visible";
 }
 
-#score{
-  x: "8%";
-  y: "17%";
-  text-anchor: "middle";
-  font-size: 65;
-  fill: "white";
-  font-family: System-Bold;
-  font-weight: bold;
-  text-length: 65;
+#score {
+    x: "8%";
+    y: "17%";
+    text-anchor: "middle";
+    font-size: 65;
+    fill: "white";
+    font-family: System-Bold;
+    font-weight: bold;
+    text-length: 65;
 }
 
-#text_display{
-  x: "50%";
-  y: "50%";
-  text-anchor: "middle";
-  font-size: 55;
-  fill: "white";
-  font-family: System-Bold;
-  font-weight: bold;
-  text-length: 55;
-  pointer-events: "visible";
+#text_display {
+    x: "50%";
+    y: "50%";
+    text-anchor: "middle";
+    font-size: 55;
+    fill: "white";
+    font-family: System-Bold;
+    font-weight: bold;
+    text-length: 55;
+    pointer-events: "visible";
 }
 
-#highscore{
-  x: "50%";
-  y: "65%";
-  text-anchor: "middle";
-  font-size: 35;
-  fill: "white";
-  font-family: System-Bold;
-  font-weight: bold;
-  text-length: 35;
-  pointer-events: "visible";
+#highscore {
+    x: "50%";
+    y: "65%";
+    text-anchor: "middle";
+    font-size: 35;
+    fill: "white";
+    font-family: System-Bold;
+    font-weight: bold;
+    text-length: 35;
+    pointer-events: "visible";
 }
 
-#background_transparent{
-  opacity: "0";
-  x: "0";
-  y: "0";
-  width: "100%";
-  height: "100%";
-  fill: "grey";
-  pointer-events: "visible";
+#background_transparent {
+    opacity: "0";
+    x: "0";
+    y: "0";
+    width: "100%";
+    height: "100%";
+    fill: "grey";
+    pointer-events: "visible";
 }
 
 

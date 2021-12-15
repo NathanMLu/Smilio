@@ -234,7 +234,7 @@ function loadLevel(difficulty) {
 function playerLost() {
 
     // Insert high score stuff here
-    if (level > current_highscore){
+    if (level > current_highscore) {
         fs.writeFileSync("highscore.txt", level.toString(), "ascii");
         current_highscore = level;
     }
@@ -326,7 +326,6 @@ function start() {
     // Creates highscore file if it is their first time playing
     if (!fs.existsSync("/private/data/highscore.txt")) {
         fs.writeFileSync("highscore.txt", "0", "ascii");
-        // TODO make panel that shows instructions (edit textdisplay and highscore)
     }
 
     initializeVariables();

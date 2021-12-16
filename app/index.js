@@ -18,7 +18,7 @@ let level = 0;
 
 // Handles auto-shutoff of display
 display.addEventListener("change", () => {
-    if (display.on) {
+    if (display.on){
         running = true;
     } else {
         running = false;
@@ -99,6 +99,7 @@ function darkClickHandler() {
                     addTime();
                     loadLevel(level);
                 } else {
+                    decreaseTime();
                     vibration.start("nudge");
                 }
             }
@@ -109,15 +110,15 @@ function darkClickHandler() {
 // Handles restarting upon death
 function startButtonHandler() {
     background_transparent.onclick = function (event) {
-        if (!running) {
-            resetToStart();
-        }
+        resetToStart();
     }
 
     text_display.onclick = function (event) {
-        if (!running) {
-            resetToStart();
-        }
+        resetToStart();
+    }
+
+    highscore.onclick = function (event) {
+        resetToStart();
     }
 }
 
